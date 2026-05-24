@@ -6,7 +6,7 @@ namespace MedicalRecordService.Controllers;
 [Route("api/health")]
 public class HealthController : ControllerBase
 {
-    [HttpGet]
+    [AcceptVerbs("GET", "HEAD")]
     public IActionResult Get()
     {
         return Ok(new { status = "Healthy" });
