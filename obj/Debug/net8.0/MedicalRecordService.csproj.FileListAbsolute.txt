@@ -138,3 +138,4 @@ E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\refint\Med
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRecordService.pdb
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRecordService.genruntimeconfig.cache
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\ref\MedicalRecordService.dll
+E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRecordService.sourcelink.json
