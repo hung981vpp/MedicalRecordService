@@ -5,8 +5,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<MedicalRecordDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    if (string.IsNullOrWhiteSpace(connectionString) ||
+        builder.Configuration.GetValue<bool>("UseInMemoryDatabase"))
+    {
+        options.UseInMemoryDatabase("MedicalRecordServiceDemoDb");
+        return;
+    }
+
+    options.UseSqlServer(connectionString);
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

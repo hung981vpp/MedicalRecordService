@@ -139,3 +139,4 @@ E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRec
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRecordService.genruntimeconfig.cache
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\ref\MedicalRecordService.dll
 E:\Backend\MedicalRecordService\MedicalRecordService\obj\Debug\net8.0\MedicalRecordService.sourcelink.json
+E:\Backend\MedicalRecordService\MedicalRecordService\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
