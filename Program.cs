@@ -5,7 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString =
+    builder.Configuration.GetConnectionString("MedicalRecordDatabase") ??
+    builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<MedicalRecordDbContext>(options =>
 {
@@ -33,5 +35,7 @@ app.UseSwaggerUI();
 app.UseAuthorization();
 
 app.MapControllers();
+
+await DatabaseSeeder.SeedAsync(app.Services);
 
 app.Run();
