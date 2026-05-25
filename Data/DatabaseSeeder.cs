@@ -24,157 +24,129 @@ public static class DatabaseSeeder
             return;
         }
 
-        var patientOneId = Guid.Parse("11111111-1111-1111-1111-111111111111");
-        var patientTwoId = Guid.Parse("22222222-2222-2222-2222-222222222222");
-        var patientThreeId = Guid.Parse("33333333-3333-3333-3333-333333333333");
-
-        var recordOneId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
-        var recordTwoId = Guid.Parse("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb");
-        var recordThreeId = Guid.Parse("cccccccc-cccc-cccc-cccc-cccccccccccc");
-
-        var prescriptionOneId = Guid.Parse("dddddddd-dddd-dddd-dddd-dddddddddddd");
-        var prescriptionTwoId = Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee");
-        var prescriptionThreeId = Guid.Parse("ffffffff-ffff-ffff-ffff-ffffffffffff");
-
-        var patients = new[]
+        var patientOne = new Patient
         {
-            new Patient
-            {
-                PatientId = patientOneId,
-                FullName = "Nguyễn Minh An",
-                DateOfBirth = new DateTime(1990, 5, 12),
-                Gender = "Nam",
-                Phone = "0901234567",
-                MedicalHistory = "Tăng huyết áp",
-                CreatedAt = DateTime.UtcNow.AddDays(-10)
-            },
-            new Patient
-            {
-                PatientId = patientTwoId,
-                FullName = "Trần Thu Hà",
-                DateOfBirth = new DateTime(1986, 9, 23),
-                Gender = "Nữ",
-                Phone = "0912345678",
-                MedicalHistory = "Dị ứng thời tiết",
-                CreatedAt = DateTime.UtcNow.AddDays(-7)
-            },
-            new Patient
-            {
-                PatientId = patientThreeId,
-                FullName = "Lê Bảo Châu",
-                DateOfBirth = new DateTime(2001, 2, 8),
-                Gender = "Nữ",
-                Phone = "0987654321",
-                MedicalHistory = null,
-                CreatedAt = DateTime.UtcNow.AddDays(-3)
-            }
+            FullName = "Nguyễn Minh An",
+            DateOfBirth = new DateTime(1990, 5, 12),
+            Gender = "Nam",
+            Phone = "0901234567",
+            MedicalHistory = "Tăng huyết áp",
+            CreatedAt = DateTime.UtcNow.AddDays(-10)
         };
 
-        var medicalRecords = new[]
+        var patientTwo = new Patient
         {
-            new MedicalRecord
-            {
-                RecordId = recordOneId,
-                AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000001"),
-                PatientId = patientOneId,
-                DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000001"),
-                Symptoms = "Đau đầu, huyết áp cao",
-                Diagnosis = "Tăng huyết áp độ 1",
-                DoctorNotes = "Theo dõi huyết áp mỗi ngày.",
-                ExamDate = DateTime.UtcNow.AddDays(-5)
-            },
-            new MedicalRecord
-            {
-                RecordId = recordTwoId,
-                AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000002"),
-                PatientId = patientTwoId,
-                DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000002"),
-                Symptoms = "Hắt hơi, sổ mũi",
-                Diagnosis = "Viêm mũi dị ứng",
-                DoctorNotes = "Hạn chế tiếp xúc với bụi và phấn hoa.",
-                ExamDate = DateTime.UtcNow.AddDays(-4)
-            },
-            new MedicalRecord
-            {
-                RecordId = recordThreeId,
-                AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000003"),
-                PatientId = patientThreeId,
-                DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000003"),
-                Symptoms = "Sốt nhẹ, đau họng",
-                Diagnosis = "Viêm họng cấp",
-                DoctorNotes = "Nghỉ ngơi và uống nhiều nước.",
-                ExamDate = DateTime.UtcNow.AddDays(-2)
-            }
+            FullName = "Trần Thu Hà",
+            DateOfBirth = new DateTime(1986, 9, 23),
+            Gender = "Nữ",
+            Phone = "0912345678",
+            MedicalHistory = "Dị ứng thời tiết",
+            CreatedAt = DateTime.UtcNow.AddDays(-7)
         };
 
-        var prescriptions = new[]
+        var patientThree = new Patient
         {
-            new Prescription
-            {
-                PrescriptionId = prescriptionOneId,
-                RecordId = recordOneId,
-                IssuedAt = DateTime.UtcNow.AddDays(-5),
-                Status = PrescriptionStatus.Pending
-            },
-            new Prescription
-            {
-                PrescriptionId = prescriptionTwoId,
-                RecordId = recordTwoId,
-                IssuedAt = DateTime.UtcNow.AddDays(-4),
-                Status = PrescriptionStatus.Dispensed
-            },
-            new Prescription
-            {
-                PrescriptionId = prescriptionThreeId,
-                RecordId = recordThreeId,
-                IssuedAt = DateTime.UtcNow.AddDays(-2),
-                Status = PrescriptionStatus.Pending
-            }
+            FullName = "Lê Bảo Châu",
+            DateOfBirth = new DateTime(2001, 2, 8),
+            Gender = "Nữ",
+            Phone = "0987654321",
+            MedicalHistory = null,
+            CreatedAt = DateTime.UtcNow.AddDays(-3)
+        };
+
+        var recordOne = new MedicalRecord
+        {
+            AppointmentId = 101,
+            Patient = patientOne,
+            DoctorId = 201,
+            Symptoms = "Đau đầu, huyết áp cao",
+            Diagnosis = "Tăng huyết áp độ 1",
+            DoctorNotes = "Theo dõi huyết áp mỗi ngày.",
+            ExamDate = DateTime.UtcNow.AddDays(-5)
+        };
+
+        var recordTwo = new MedicalRecord
+        {
+            AppointmentId = 102,
+            Patient = patientTwo,
+            DoctorId = 202,
+            Symptoms = "Hắt hơi, sổ mũi",
+            Diagnosis = "Viêm mũi dị ứng",
+            DoctorNotes = "Hạn chế tiếp xúc với bụi và phấn hoa.",
+            ExamDate = DateTime.UtcNow.AddDays(-4)
+        };
+
+        var recordThree = new MedicalRecord
+        {
+            AppointmentId = 103,
+            Patient = patientThree,
+            DoctorId = 203,
+            Symptoms = "Sốt nhẹ, đau họng",
+            Diagnosis = "Viêm họng cấp",
+            DoctorNotes = "Nghỉ ngơi và uống nhiều nước.",
+            ExamDate = DateTime.UtcNow.AddDays(-2)
+        };
+
+        var prescriptionOne = new Prescription
+        {
+            MedicalRecord = recordOne,
+            IssuedAt = DateTime.UtcNow.AddDays(-5),
+            Status = PrescriptionStatus.Pending
+        };
+
+        var prescriptionTwo = new Prescription
+        {
+            MedicalRecord = recordTwo,
+            IssuedAt = DateTime.UtcNow.AddDays(-4),
+            Status = PrescriptionStatus.Dispensed
+        };
+
+        var prescriptionThree = new Prescription
+        {
+            MedicalRecord = recordThree,
+            IssuedAt = DateTime.UtcNow.AddDays(-2),
+            Status = PrescriptionStatus.Pending
         };
 
         var prescriptionItems = new[]
         {
             new PrescriptionItem
             {
-                PrescriptionItemId = Guid.Parse("30000000-0000-0000-0000-000000000001"),
-                PrescriptionId = prescriptionOneId,
-                MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000001"),
+                Prescription = prescriptionOne,
+                MedicineId = 401,
                 MedicineName = "Amlodipine 5mg",
                 Quantity = 30,
                 Dosage = "1 viên mỗi sáng"
             },
             new PrescriptionItem
             {
-                PrescriptionItemId = Guid.Parse("30000000-0000-0000-0000-000000000002"),
-                PrescriptionId = prescriptionTwoId,
-                MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000002"),
+                Prescription = prescriptionTwo,
+                MedicineId = 402,
                 MedicineName = "Loratadine 10mg",
                 Quantity = 10,
                 Dosage = "1 viên mỗi ngày"
             },
             new PrescriptionItem
             {
-                PrescriptionItemId = Guid.Parse("30000000-0000-0000-0000-000000000003"),
-                PrescriptionId = prescriptionThreeId,
-                MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000003"),
+                Prescription = prescriptionThree,
+                MedicineId = 403,
                 MedicineName = "Paracetamol 500mg",
                 Quantity = 12,
                 Dosage = "1 viên khi sốt"
             },
             new PrescriptionItem
             {
-                PrescriptionItemId = Guid.Parse("30000000-0000-0000-0000-000000000004"),
-                PrescriptionId = prescriptionThreeId,
-                MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000004"),
+                Prescription = prescriptionThree,
+                MedicineId = 404,
                 MedicineName = "Vitamin C 500mg",
                 Quantity = 10,
                 Dosage = "1 viên mỗi ngày"
             }
         };
 
-        context.Patients.AddRange(patients);
-        context.MedicalRecords.AddRange(medicalRecords);
-        context.Prescriptions.AddRange(prescriptions);
+        context.Patients.AddRange(patientOne, patientTwo, patientThree);
+        context.MedicalRecords.AddRange(recordOne, recordTwo, recordThree);
+        context.Prescriptions.AddRange(prescriptionOne, prescriptionTwo, prescriptionThree);
         context.PrescriptionItems.AddRange(prescriptionItems);
 
         await context.SaveChangesAsync();

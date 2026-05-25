@@ -45,7 +45,7 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["patientId"] = new OpenApiString("11111111-1111-1111-1111-111111111111"),
+            ["patientId"] = new OpenApiInteger(1),
             ["fullName"] = new OpenApiString("Nguyễn Minh An"),
             ["dateOfBirth"] = new OpenApiString("1990-05-12T00:00:00Z"),
             ["gender"] = new OpenApiString("Nam"),
@@ -71,10 +71,10 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["recordId"] = new OpenApiString("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
-            ["appointmentId"] = new OpenApiString("10000000-0000-0000-0000-000000000001"),
-            ["patientId"] = new OpenApiString("11111111-1111-1111-1111-111111111111"),
-            ["doctorId"] = new OpenApiString("20000000-0000-0000-0000-000000000001"),
+            ["recordId"] = new OpenApiInteger(1),
+            ["appointmentId"] = new OpenApiInteger(101),
+            ["patientId"] = new OpenApiInteger(1),
+            ["doctorId"] = new OpenApiInteger(201),
             ["symptoms"] = new OpenApiString("Đau đầu, huyết áp cao"),
             ["diagnosis"] = new OpenApiString("Tăng huyết áp độ 1"),
             ["doctorNotes"] = new OpenApiString("Theo dõi huyết áp mỗi ngày."),
@@ -86,9 +86,9 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["appointmentId"] = new OpenApiString("10000000-0000-0000-0000-000000000001"),
-            ["patientId"] = new OpenApiString("11111111-1111-1111-1111-111111111111"),
-            ["doctorId"] = new OpenApiString("20000000-0000-0000-0000-000000000001"),
+            ["appointmentId"] = new OpenApiInteger(101),
+            ["patientId"] = new OpenApiInteger(1),
+            ["doctorId"] = new OpenApiInteger(201),
             ["symptoms"] = new OpenApiString("Đau đầu, huyết áp cao"),
             ["diagnosis"] = new OpenApiString("Tăng huyết áp độ 1"),
             ["doctorNotes"] = new OpenApiString("Theo dõi huyết áp mỗi ngày."),
@@ -100,10 +100,10 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionId"] = new OpenApiString("dddddddd-dddd-dddd-dddd-dddddddddddd"),
-            ["recordId"] = new OpenApiString("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
+            ["prescriptionId"] = new OpenApiInteger(1),
+            ["recordId"] = new OpenApiInteger(1),
             ["issuedAt"] = new OpenApiString("2026-05-25T10:00:00Z"),
-            ["status"] = new OpenApiString("Pending")
+            ["status"] = new OpenApiString(nameof(PrescriptionStatus.Pending))
         };
     }
 
@@ -111,8 +111,8 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["recordId"] = new OpenApiString("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
-            ["status"] = new OpenApiString("Pending"),
+            ["recordId"] = new OpenApiInteger(1),
+            ["status"] = new OpenApiString(nameof(PrescriptionStatus.Pending)),
             ["issuedAt"] = new OpenApiString("2026-05-25T10:00:00Z")
         };
     }
@@ -121,9 +121,9 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionItemId"] = new OpenApiString("30000000-0000-0000-0000-000000000001"),
-            ["prescriptionId"] = new OpenApiString("dddddddd-dddd-dddd-dddd-dddddddddddd"),
-            ["medicineId"] = new OpenApiString("40000000-0000-0000-0000-000000000001"),
+            ["prescriptionItemId"] = new OpenApiInteger(1),
+            ["prescriptionId"] = new OpenApiInteger(1),
+            ["medicineId"] = new OpenApiInteger(401),
             ["medicineName"] = new OpenApiString("Amlodipine 5mg"),
             ["quantity"] = new OpenApiInteger(30),
             ["dosage"] = new OpenApiString("1 viên mỗi sáng")
@@ -134,8 +134,8 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionId"] = new OpenApiString("dddddddd-dddd-dddd-dddd-dddddddddddd"),
-            ["medicineId"] = new OpenApiString("40000000-0000-0000-0000-000000000001"),
+            ["prescriptionId"] = new OpenApiInteger(1),
+            ["medicineId"] = new OpenApiInteger(401),
             ["medicineName"] = new OpenApiString("Amlodipine 5mg"),
             ["quantity"] = new OpenApiInteger(30),
             ["dosage"] = new OpenApiString("1 viên mỗi sáng")

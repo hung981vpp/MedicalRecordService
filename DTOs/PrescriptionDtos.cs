@@ -3,17 +3,17 @@ using MedicalRecordService.Models;
 namespace MedicalRecordService.DTOs;
 
 public record PrescriptionDto(
-    Guid PrescriptionId,
-    Guid RecordId,
+    int PrescriptionId,
+    int RecordId,
     DateTime IssuedAt,
     PrescriptionStatus Status);
 
 public record CreatePrescriptionRequest(
-    Guid RecordId,
+    int RecordId,
     PrescriptionStatus? Status,
     DateTime? IssuedAt);
 
 public record UpdatePrescriptionRequest(
-    Guid RecordId,
+    int RecordId,
     PrescriptionStatus Status,
     DateTime IssuedAt);
