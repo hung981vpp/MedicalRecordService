@@ -1,7 +1,7 @@
 namespace MedicalRecordService.DTOs;
 
 public record PatientDto(
-    int PatientId,
+    string PatientId,
     string FullName,
     DateTime DateOfBirth,
     string Gender,

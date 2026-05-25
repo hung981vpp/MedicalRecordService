@@ -27,8 +27,8 @@ public class PatientsController : ControllerBase
             .ToListAsync();
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<PatientDto>> GetPatient(int id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<PatientDto>> GetPatient(string id)
     {
         var patient = await _context.Patients
             .AsNoTracking()
@@ -55,8 +55,8 @@ public class PatientsController : ControllerBase
         return CreatedAtAction(nameof(GetPatient), new { id = patient.PatientId }, ToDto(patient));
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdatePatient(int id, UpdatePatientRequest request)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdatePatient(string id, UpdatePatientRequest request)
     {
         var patient = await _context.Patients.FindAsync(id);
         if (patient is null)
@@ -75,8 +75,8 @@ public class PatientsController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<IActionResult> DeletePatient(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePatient(string id)
     {
         var patient = await _context.Patients.FindAsync(id);
         if (patient is null)

@@ -2,10 +2,10 @@
 
 public class MedicalRecord
 {
-    public int RecordId { get; set; }
-    public int AppointmentId { get; set; }
-    public int PatientId { get; set; }
-    public int DoctorId { get; set; }
+    public string RecordId { get; set; } = string.Empty;
+    public string AppointmentId { get; set; } = string.Empty;
+    public string PatientId { get; set; } = string.Empty;
+    public string DoctorId { get; set; } = string.Empty;
     public string Symptoms { get; set; } = string.Empty;
     public string Diagnosis { get; set; } = string.Empty;
     public string? DoctorNotes { get; set; }

@@ -4,8 +4,8 @@ public enum PrescriptionStatus { Pending, Dispensed }
 
 public class Prescription
 {
-    public int PrescriptionId { get; set; }
-    public int RecordId { get; set; }
+    public string PrescriptionId { get; set; } = string.Empty;
+    public string RecordId { get; set; } = string.Empty;
     public DateTime IssuedAt { get; set; } = DateTime.UtcNow;
     public PrescriptionStatus Status { get; set; } = PrescriptionStatus.Pending;
 

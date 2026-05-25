@@ -27,8 +27,8 @@ public class PrescriptionsController : ControllerBase
             .ToListAsync();
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<PrescriptionDto>> GetPrescription(int id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<PrescriptionDto>> GetPrescription(string id)
     {
         var prescription = await _context.Prescriptions
             .AsNoTracking()
@@ -59,8 +59,8 @@ public class PrescriptionsController : ControllerBase
         return CreatedAtAction(nameof(GetPrescription), new { id = prescription.PrescriptionId }, ToDto(prescription));
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdatePrescription(int id, UpdatePrescriptionRequest request)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdatePrescription(string id, UpdatePrescriptionRequest request)
     {
         var prescription = await _context.Prescriptions.FindAsync(id);
         if (prescription is null)
@@ -83,8 +83,8 @@ public class PrescriptionsController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<IActionResult> DeletePrescription(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePrescription(string id)
     {
         var prescription = await _context.Prescriptions.FindAsync(id);
         if (prescription is null)

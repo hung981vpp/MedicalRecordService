@@ -22,6 +22,7 @@ public class MedicalRecordDbContext : DbContext
         modelBuilder.Entity<Patient>(entity =>
         {
             entity.HasKey(e => e.PatientId);
+            entity.Property(e => e.PatientId).HasMaxLength(20).IsRequired();
             entity.Property(e => e.FullName).HasMaxLength(200).IsRequired();
             entity.Property(e => e.Gender).HasMaxLength(50).IsRequired();
             entity.Property(e => e.Phone).HasMaxLength(30).IsRequired();
@@ -31,6 +32,10 @@ public class MedicalRecordDbContext : DbContext
         modelBuilder.Entity<MedicalRecord>(entity =>
         {
             entity.HasKey(e => e.RecordId);
+            entity.Property(e => e.RecordId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.AppointmentId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.PatientId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.DoctorId).HasMaxLength(20).IsRequired();
             entity.Property(e => e.Symptoms).HasMaxLength(2000).IsRequired();
             entity.Property(e => e.Diagnosis).HasMaxLength(2000).IsRequired();
             entity.Property(e => e.DoctorNotes).HasMaxLength(2000);
@@ -44,6 +49,8 @@ public class MedicalRecordDbContext : DbContext
         modelBuilder.Entity<Prescription>(entity =>
         {
             entity.HasKey(e => e.PrescriptionId);
+            entity.Property(e => e.PrescriptionId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.RecordId).HasMaxLength(20).IsRequired();
             entity.Property(e => e.Status).HasConversion<string>().HasMaxLength(50);
 
             entity.HasOne(e => e.MedicalRecord)
@@ -55,6 +62,9 @@ public class MedicalRecordDbContext : DbContext
         modelBuilder.Entity<PrescriptionItem>(entity =>
         {
             entity.HasKey(e => e.PrescriptionItemId);
+            entity.Property(e => e.PrescriptionItemId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.PrescriptionId).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.MedicineId).HasMaxLength(20).IsRequired();
             entity.Property(e => e.MedicineName).HasMaxLength(200).IsRequired();
             entity.Property(e => e.Dosage).HasMaxLength(200).IsRequired();
 

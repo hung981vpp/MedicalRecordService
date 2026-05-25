@@ -26,6 +26,7 @@ public static class DatabaseSeeder
 
         var patientOne = new Patient
         {
+            PatientId = "BN001",
             FullName = "Nguyễn Minh An",
             DateOfBirth = new DateTime(1990, 5, 12),
             Gender = "Nam",
@@ -36,6 +37,7 @@ public static class DatabaseSeeder
 
         var patientTwo = new Patient
         {
+            PatientId = "BN002",
             FullName = "Trần Thu Hà",
             DateOfBirth = new DateTime(1986, 9, 23),
             Gender = "Nữ",
@@ -46,6 +48,7 @@ public static class DatabaseSeeder
 
         var patientThree = new Patient
         {
+            PatientId = "BN003",
             FullName = "Lê Bảo Châu",
             DateOfBirth = new DateTime(2001, 2, 8),
             Gender = "Nữ",
@@ -56,9 +59,10 @@ public static class DatabaseSeeder
 
         var recordOne = new MedicalRecord
         {
-            AppointmentId = 101,
+            RecordId = "HS001",
+            AppointmentId = "LH001",
             Patient = patientOne,
-            DoctorId = 201,
+            DoctorId = "BS001",
             Symptoms = "Đau đầu, huyết áp cao",
             Diagnosis = "Tăng huyết áp độ 1",
             DoctorNotes = "Theo dõi huyết áp mỗi ngày.",
@@ -67,9 +71,10 @@ public static class DatabaseSeeder
 
         var recordTwo = new MedicalRecord
         {
-            AppointmentId = 102,
+            RecordId = "HS002",
+            AppointmentId = "LH002",
             Patient = patientTwo,
-            DoctorId = 202,
+            DoctorId = "BS002",
             Symptoms = "Hắt hơi, sổ mũi",
             Diagnosis = "Viêm mũi dị ứng",
             DoctorNotes = "Hạn chế tiếp xúc với bụi và phấn hoa.",
@@ -78,9 +83,10 @@ public static class DatabaseSeeder
 
         var recordThree = new MedicalRecord
         {
-            AppointmentId = 103,
+            RecordId = "HS003",
+            AppointmentId = "LH003",
             Patient = patientThree,
-            DoctorId = 203,
+            DoctorId = "BS003",
             Symptoms = "Sốt nhẹ, đau họng",
             Diagnosis = "Viêm họng cấp",
             DoctorNotes = "Nghỉ ngơi và uống nhiều nước.",
@@ -89,6 +95,7 @@ public static class DatabaseSeeder
 
         var prescriptionOne = new Prescription
         {
+            PrescriptionId = "DT001",
             MedicalRecord = recordOne,
             IssuedAt = DateTime.UtcNow.AddDays(-5),
             Status = PrescriptionStatus.Pending
@@ -96,6 +103,7 @@ public static class DatabaseSeeder
 
         var prescriptionTwo = new Prescription
         {
+            PrescriptionId = "DT002",
             MedicalRecord = recordTwo,
             IssuedAt = DateTime.UtcNow.AddDays(-4),
             Status = PrescriptionStatus.Dispensed
@@ -103,6 +111,7 @@ public static class DatabaseSeeder
 
         var prescriptionThree = new Prescription
         {
+            PrescriptionId = "DT003",
             MedicalRecord = recordThree,
             IssuedAt = DateTime.UtcNow.AddDays(-2),
             Status = PrescriptionStatus.Pending
@@ -112,32 +121,36 @@ public static class DatabaseSeeder
         {
             new PrescriptionItem
             {
+                PrescriptionItemId = "CT001",
                 Prescription = prescriptionOne,
-                MedicineId = 401,
+                MedicineId = "TH001",
                 MedicineName = "Amlodipine 5mg",
                 Quantity = 30,
                 Dosage = "1 viên mỗi sáng"
             },
             new PrescriptionItem
             {
+                PrescriptionItemId = "CT002",
                 Prescription = prescriptionTwo,
-                MedicineId = 402,
+                MedicineId = "TH002",
                 MedicineName = "Loratadine 10mg",
                 Quantity = 10,
                 Dosage = "1 viên mỗi ngày"
             },
             new PrescriptionItem
             {
+                PrescriptionItemId = "CT003",
                 Prescription = prescriptionThree,
-                MedicineId = 403,
+                MedicineId = "TH003",
                 MedicineName = "Paracetamol 500mg",
                 Quantity = 12,
                 Dosage = "1 viên khi sốt"
             },
             new PrescriptionItem
             {
+                PrescriptionItemId = "CT004",
                 Prescription = prescriptionThree,
-                MedicineId = 404,
+                MedicineId = "TH004",
                 MedicineName = "Vitamin C 500mg",
                 Quantity = 10,
                 Dosage = "1 viên mỗi ngày"

@@ -27,8 +27,8 @@ public class MedicalRecordsController : ControllerBase
             .ToListAsync();
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<MedicalRecordDto>> GetMedicalRecord(int id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<MedicalRecordDto>> GetMedicalRecord(string id)
     {
         var record = await _context.MedicalRecords
             .AsNoTracking()
@@ -63,8 +63,8 @@ public class MedicalRecordsController : ControllerBase
         return CreatedAtAction(nameof(GetMedicalRecord), new { id = record.RecordId }, ToDto(record));
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdateMedicalRecord(int id, UpdateMedicalRecordRequest request)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateMedicalRecord(string id, UpdateMedicalRecordRequest request)
     {
         var record = await _context.MedicalRecords.FindAsync(id);
         if (record is null)
@@ -91,8 +91,8 @@ public class MedicalRecordsController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<IActionResult> DeleteMedicalRecord(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteMedicalRecord(string id)
     {
         var record = await _context.MedicalRecords.FindAsync(id);
         if (record is null)

@@ -45,7 +45,7 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["patientId"] = new OpenApiInteger(1),
+            ["patientId"] = new OpenApiString("BN001"),
             ["fullName"] = new OpenApiString("Nguyễn Minh An"),
             ["dateOfBirth"] = new OpenApiString("1990-05-12T00:00:00Z"),
             ["gender"] = new OpenApiString("Nam"),
@@ -71,10 +71,10 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["recordId"] = new OpenApiInteger(1),
-            ["appointmentId"] = new OpenApiInteger(101),
-            ["patientId"] = new OpenApiInteger(1),
-            ["doctorId"] = new OpenApiInteger(201),
+            ["recordId"] = new OpenApiString("HS001"),
+            ["appointmentId"] = new OpenApiString("LH001"),
+            ["patientId"] = new OpenApiString("BN001"),
+            ["doctorId"] = new OpenApiString("BS001"),
             ["symptoms"] = new OpenApiString("Đau đầu, huyết áp cao"),
             ["diagnosis"] = new OpenApiString("Tăng huyết áp độ 1"),
             ["doctorNotes"] = new OpenApiString("Theo dõi huyết áp mỗi ngày."),
@@ -86,9 +86,9 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["appointmentId"] = new OpenApiInteger(101),
-            ["patientId"] = new OpenApiInteger(1),
-            ["doctorId"] = new OpenApiInteger(201),
+            ["appointmentId"] = new OpenApiString("LH001"),
+            ["patientId"] = new OpenApiString("BN001"),
+            ["doctorId"] = new OpenApiString("BS001"),
             ["symptoms"] = new OpenApiString("Đau đầu, huyết áp cao"),
             ["diagnosis"] = new OpenApiString("Tăng huyết áp độ 1"),
             ["doctorNotes"] = new OpenApiString("Theo dõi huyết áp mỗi ngày."),
@@ -100,8 +100,8 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionId"] = new OpenApiInteger(1),
-            ["recordId"] = new OpenApiInteger(1),
+            ["prescriptionId"] = new OpenApiString("DT001"),
+            ["recordId"] = new OpenApiString("HS001"),
             ["issuedAt"] = new OpenApiString("2026-05-25T10:00:00Z"),
             ["status"] = new OpenApiString(nameof(PrescriptionStatus.Pending))
         };
@@ -111,7 +111,7 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["recordId"] = new OpenApiInteger(1),
+            ["recordId"] = new OpenApiString("HS001"),
             ["status"] = new OpenApiString(nameof(PrescriptionStatus.Pending)),
             ["issuedAt"] = new OpenApiString("2026-05-25T10:00:00Z")
         };
@@ -121,9 +121,9 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionItemId"] = new OpenApiInteger(1),
-            ["prescriptionId"] = new OpenApiInteger(1),
-            ["medicineId"] = new OpenApiInteger(401),
+            ["prescriptionItemId"] = new OpenApiString("CT001"),
+            ["prescriptionId"] = new OpenApiString("DT001"),
+            ["medicineId"] = new OpenApiString("TH001"),
             ["medicineName"] = new OpenApiString("Amlodipine 5mg"),
             ["quantity"] = new OpenApiInteger(30),
             ["dosage"] = new OpenApiString("1 viên mỗi sáng")
@@ -134,8 +134,8 @@ public class SwaggerExampleSchemaFilter : ISchemaFilter
     {
         return new OpenApiObject
         {
-            ["prescriptionId"] = new OpenApiInteger(1),
-            ["medicineId"] = new OpenApiInteger(401),
+            ["prescriptionId"] = new OpenApiString("DT001"),
+            ["medicineId"] = new OpenApiString("TH001"),
             ["medicineName"] = new OpenApiString("Amlodipine 5mg"),
             ["quantity"] = new OpenApiInteger(30),
             ["dosage"] = new OpenApiString("1 viên mỗi sáng")
