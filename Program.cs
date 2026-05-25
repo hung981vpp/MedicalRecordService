@@ -1,4 +1,6 @@
+using System.Text.Json.Serialization;
 using MedicalRecordService.Data;
+using MedicalRecordService.Swagger;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,9 +23,16 @@ builder.Services.AddDbContext<MedicalRecordDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SchemaFilter<SwaggerExampleSchemaFilter>();
+});
 
 var app = builder.Build();
 

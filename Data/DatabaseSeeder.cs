@@ -41,29 +41,29 @@ public static class DatabaseSeeder
             new Patient
             {
                 PatientId = patientOneId,
-                FullName = "Nguyen Van An",
+                FullName = "Nguyễn Minh An",
                 DateOfBirth = new DateTime(1990, 5, 12),
-                Gender = "Male",
+                Gender = "Nam",
                 Phone = "0901234567",
-                MedicalHistory = "Hypertension",
+                MedicalHistory = "Tăng huyết áp",
                 CreatedAt = DateTime.UtcNow.AddDays(-10)
             },
             new Patient
             {
                 PatientId = patientTwoId,
-                FullName = "Tran Thi Binh",
+                FullName = "Trần Thu Hà",
                 DateOfBirth = new DateTime(1986, 9, 23),
-                Gender = "Female",
+                Gender = "Nữ",
                 Phone = "0912345678",
-                MedicalHistory = "Seasonal allergy",
+                MedicalHistory = "Dị ứng thời tiết",
                 CreatedAt = DateTime.UtcNow.AddDays(-7)
             },
             new Patient
             {
                 PatientId = patientThreeId,
-                FullName = "Le Minh Chau",
+                FullName = "Lê Bảo Châu",
                 DateOfBirth = new DateTime(2001, 2, 8),
-                Gender = "Female",
+                Gender = "Nữ",
                 Phone = "0987654321",
                 MedicalHistory = null,
                 CreatedAt = DateTime.UtcNow.AddDays(-3)
@@ -78,9 +78,9 @@ public static class DatabaseSeeder
                 AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000001"),
                 PatientId = patientOneId,
                 DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000001"),
-                Symptoms = "Headache and elevated blood pressure",
-                Diagnosis = "Stage 1 hypertension",
-                DoctorNotes = "Monitor blood pressure twice daily.",
+                Symptoms = "Đau đầu, huyết áp cao",
+                Diagnosis = "Tăng huyết áp độ 1",
+                DoctorNotes = "Theo dõi huyết áp mỗi ngày.",
                 ExamDate = DateTime.UtcNow.AddDays(-5)
             },
             new MedicalRecord
@@ -89,9 +89,9 @@ public static class DatabaseSeeder
                 AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000002"),
                 PatientId = patientTwoId,
                 DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000002"),
-                Symptoms = "Sneezing, runny nose, itchy eyes",
-                Diagnosis = "Allergic rhinitis",
-                DoctorNotes = "Avoid known allergens and follow up if symptoms persist.",
+                Symptoms = "Hắt hơi, sổ mũi",
+                Diagnosis = "Viêm mũi dị ứng",
+                DoctorNotes = "Hạn chế tiếp xúc với bụi và phấn hoa.",
                 ExamDate = DateTime.UtcNow.AddDays(-4)
             },
             new MedicalRecord
@@ -100,9 +100,9 @@ public static class DatabaseSeeder
                 AppointmentId = Guid.Parse("10000000-0000-0000-0000-000000000003"),
                 PatientId = patientThreeId,
                 DoctorId = Guid.Parse("20000000-0000-0000-0000-000000000003"),
-                Symptoms = "Fever, sore throat, fatigue",
-                Diagnosis = "Acute pharyngitis",
-                DoctorNotes = "Rest and drink fluids.",
+                Symptoms = "Sốt nhẹ, đau họng",
+                Diagnosis = "Viêm họng cấp",
+                DoctorNotes = "Nghỉ ngơi và uống nhiều nước.",
                 ExamDate = DateTime.UtcNow.AddDays(-2)
             }
         };
@@ -141,7 +141,7 @@ public static class DatabaseSeeder
                 MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000001"),
                 MedicineName = "Amlodipine 5mg",
                 Quantity = 30,
-                Dosage = "1 tablet once daily"
+                Dosage = "1 viên mỗi sáng"
             },
             new PrescriptionItem
             {
@@ -150,7 +150,7 @@ public static class DatabaseSeeder
                 MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000002"),
                 MedicineName = "Loratadine 10mg",
                 Quantity = 10,
-                Dosage = "1 tablet once daily"
+                Dosage = "1 viên mỗi ngày"
             },
             new PrescriptionItem
             {
@@ -159,7 +159,7 @@ public static class DatabaseSeeder
                 MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000003"),
                 MedicineName = "Paracetamol 500mg",
                 Quantity = 12,
-                Dosage = "1 tablet every 6 hours when feverish"
+                Dosage = "1 viên khi sốt"
             },
             new PrescriptionItem
             {
@@ -168,7 +168,7 @@ public static class DatabaseSeeder
                 MedicineId = Guid.Parse("40000000-0000-0000-0000-000000000004"),
                 MedicineName = "Vitamin C 500mg",
                 Quantity = 10,
-                Dosage = "1 tablet once daily"
+                Dosage = "1 viên mỗi ngày"
             }
         };
 
